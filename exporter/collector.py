@@ -33,8 +33,8 @@ async def run_async_tasks():
     async_tasks = {
         "get_block_height": get_block_height(),
         "get_slots": get_slots(),
-        # "get_votes": get_votes(),
-        # "balance_metrics": balance_metrics(),
+        "get_votes": get_votes(),
+        "balance_metrics": balance_metrics(),
         "get_vote_accounts": get_vote_accounts(),
         "leader_slot_metrics": leader_slot_metrics(),
         "get_epoch_information": get_epoch_information(),
