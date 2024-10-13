@@ -5,8 +5,8 @@ After=syslog.target network.target
 [Service]
 Type=simple
 User=root
-WorkingDirectory=/root/solana-monitor-public
-ExecStart=/root/solana-monitor-public/monitor-env/bin/python3 -u /root/solana-monitor-public/main.py  --serve-in-foreground
+WorkingDirectory=/root/agave-monitor
+ExecStart=/root/agave-monitor/monitor-env/bin/python3 -u /root/agave-monitor/main.py  --serve-in-foreground
 Restart=on-abort
 
 [Install]
