@@ -47,7 +47,7 @@ async def run_exporter():
 
 
 def main():
-    logger.add("logs/monitor.log",
+    logger.add("/var/log/agave/monitor.log",
                level=LOG_LEVEL,
                rotation="00:00",
                retention="6 days",
