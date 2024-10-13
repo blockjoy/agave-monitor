@@ -7,6 +7,8 @@ This project monitors Solana/Agave validator metrics.
 
 - **Git**: To clone the repository
 - **Python**: To run the application
+- **Metrics Collector**: To scrape the service `/metrics` endpoint
+- **Logs Collector**: To scrape the logs from the validator and monitor
 
 ## Start the application
 
@@ -37,6 +39,25 @@ systemctl enable agave-monitor
 ```bash
 systemctl start agave-monitor
 ```
+
+### 6. Configure metrics and logs collectors
+Any prometheus compatible collector will work.  Some examples:
+  - [Alloy](https://grafana.com/docs/alloy/latest/ "From Grafana") (metrics and logs)
+  - [Vector](https://vector.dev "From Datadog") (metrics and logs)
+  - [Node Exporter](https://github.com/prometheus/node_exporter "From the prometheus project") (metrics only)
+  - [Promtail](https://grafana.com/docs/loki/latest/send-data/promtail/installation/) (logs only)
+  
+1. Configure metrics to scrape the port configured in `config.yml` and endpoint `/metrics`<br>
+  (e.g. `http://localhost:12344/metrics`)
+2. Configure logs collection<br>
+  - Location of validator logs
+  - Location of monitor process logs (default: `logs/monitor.log`)
+  
+---
+
+### Grafana Dashboard
+The dashboard can be imported from the docs/ directory to your Grafana instance<br>
+  - Default is to utilize a label applied by the collector `job: agave` (can be editted to match your environment)
 
 ### Node Exporter Metrics
 
